@@ -56,14 +56,14 @@ const Projects = () => {
             <div className={styles.title_container}>
                 <h1>Meus Projetos</h1>
 
-                <LinkButton to="project/new" text="Novo Projeto" />
+                <LinkButton to="/project/new" text="Novo Projeto" />
             </div>
 
             { message && <Message type="success" msg={ message } /> }
             { projectMessage && <Message type="error" msg={ projectMessage } /> }
 
             <Container customClass="start">
-                {projects.length > 0 && 
+                { projects.length > 0 && 
                     projects.map((project) =>
                     <ProjectCard 
                     id={project.id}
@@ -73,7 +73,7 @@ const Projects = () => {
                     key={project.id}
                     handleRemove={removeProject}
                     />
-                )}
+                ) }
 
                 { !removeLoading && <Loading /> }
                 { removeLoading && projects.length === 0 && (
